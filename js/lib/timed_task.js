@@ -1,7 +1,7 @@
 var TimedTask = function(options) {
   options = options || {};
-  var that = new Task(options);
-  that.startingDate = options.startingDate || new Date().getTime();
+  Task.apply(this,[ options ]);
+  this.startingDate = options.startingDate || new Date().getTime();
 
-  return that;
+  return this;
 };
