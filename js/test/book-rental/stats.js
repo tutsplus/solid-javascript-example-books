@@ -2,16 +2,19 @@ describe("Book rental", function() {
   describe("Stats", function() {
     var stats,
         order = new Order(),
-        book = new Book("Harry Potter");
+        book = new Book("Harry Potter"),
+        second_book = new Book("Lord of the Rings");
 
-    beforeEach(function() {
+    beforeEach(function() {
       stats = new Stats();
       order.addBook(book);
       spyOn(Library,"allOrders").andReturn([ order ]);
     });
 
     it("retrieves the currently rented books", function() {
-      expect(stats.rentedBooks()).toEqual([book]);
+      var orders = Library.allOrders();
+
+      expect(stats.rentedBooks(orders)).toEqual([book]);
     });
   });
 });
