@@ -2,7 +2,7 @@ var FlexibleOrder = function(user) {
   Order.apply(this,[ user ]);
 };
 
-FlexibleOrder.prototype = Order.prototype;
+FlexibleOrder.prototype = Object.create(Order.prototype);
 
 FlexibleOrder.prototype.terminateBook = function(book) {
   var index = this._findItemIndex(book);
